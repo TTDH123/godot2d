@@ -1,3 +1,3 @@
 https://www.youtube.com/watch?v=LOhfqjmasi0
 
-28:20 ~ Pickups
+40:35 WorldBuilding 2.0 ~
