@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b3hjlgmu1lcvb" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://dtdncmd6dus80" path="res://Assets/sprites/world_tileset.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dqa01xdajdmpt" path="res://Scenes/platform.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://4y0iag1d8ktc" path="res://Scenes/coin.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://Scenes/killzone.tscn" id="5_wowpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -170,7 +172,7 @@ texture = ExtResource("2_qxrlw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
-[sub_resource type="Animation" id="Animation_wrm1d"]
+[sub_resource type="Animation" id="Animation_3dryh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -182,12 +184,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-129, -60)]
+"values": [Vector2(20, -59)]
 }
 
-[sub_resource type="Animation" id="Animation_3dryh"]
+[sub_resource type="Animation" id="Animation_wowpa"]
 resource_name = "move"
-length = 2.0
+length = 1.5
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -196,41 +198,65 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-129, -60), Vector2(80, -60)]
+"values": [Vector2(-96, -56), Vector2(48, -56)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6g32"]
 _data = {
-&"RESET": SubResource("Animation_wrm1d"),
-&"move": SubResource("Animation_3dryh")
+&"RESET": SubResource("Animation_3dryh"),
+&"move": SubResource("Animation_wowpa")
 }
 
 [node name="Game" type="Node2D" unique_id=252879056]
 
 [node name="Player" parent="." unique_id=1772401744 instance=ExtResource("1_ebmjs")]
 z_index = 5
-position = Vector2(28, 34)
+position = Vector2(-96, 32)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=239448932]
 position = Vector2(-28, -34)
+scale = Vector2(35.27626, 377258.63)
+offset = Vector2(20, 20)
 zoom = Vector2(4, 4)
+limit_bottom = 80
 position_smoothing_enabled = true
-
-[node name="Platform" parent="." unique_id=977040052 instance=ExtResource("3_wrm1d")]
-position = Vector2(43, 6)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=2002491812]
 tile_set = SubResource("TileSet_3dryh")
 format = 2
 layer_0/name = "Layer1"
-layer_0/tile_data = PackedInt32Array(196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196609, 458752, 0, 196610, 458752, 0, 196611, 458752, 0, 262145, 393216, 2, 262146, 393216, 2, 262147, 393216, 2, 131069, 262144, 1, 196605, 262144, 1, 262141, 262144, 1, 327677, 262144, 1, 327678, 262144, 1, 327679, 262144, 1, 262143, 262144, 1, 196607, 262144, 1, 131071, 262144, 1, 131070, 262144, 1, 196606, 262144, 1, 262142, 262144, 1, 262137, 0, 1, 262138, 0, 1, 262139, 0, 1, 327675, 0, 1, 327674, 0, 1, 327673, 0, 1, -262138, 0, 0, -262137, 0, 0, -196602, 0, 1, -196601, 0, 1, -131065, 0, 1, -65529, 0, 1, 7, 0, 1, 65543, 0, 1, 131079, 0, 1, 196615, 0, 1, 262151, 0, 1, 262150, 0, 1, 196614, 0, 1, 131078, 0, 1, 65542, 0, 1, 6, 0, 1, -65530, 0, 1, -131066, 0, 1, -196620, 131072, 0, -196619, 131072, 0, -196618, 131072, 0, -131084, 131072, 1, -131083, 131072, 1, -131082, 131072, 1, -65546, 131072, 1, -10, 131072, 1, 65526, 131072, 1, 131062, 131072, 1, 196598, 131072, 1, 262134, 131072, 1, 327670, 131072, 1, 327669, 131072, 1, 327668, 131072, 1, 262132, 131072, 1, 196596, 131072, 1, 131060, 131072, 1, 65524, 131072, 1, -12, 131072, 1, -65548, 131072, 1, -65547, 131072, 1, -11, 131072, 1, 65525, 131072, 1, 131061, 131072, 1, 196597, 131072, 1, 262133, 131072, 1, 65533, 262144, 1, 65534, 262144, 1, 65535, 262144, 1, -1, 262144, 1, -2, 262144, 1, -3, 262144, 1, -65539, 262144, 0, -65538, 262144, 0, -65537, 262144, 0)
+layer_0/tile_data = PackedInt32Array(196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 196600, 0, 1, 131064, 0, 1, 65528, 0, 1, -8, 0, 1, -65544, 0, 1, -131080, 0, 1, -196616, 0, 0, 262136, 0, 1, 327672, 0, 1, 327673, 0, 1, 327674, 0, 1, 327675, 0, 1, 327676, 0, 1, 327677, 0, 1, 327678, 0, 1, 327679, 0, 1, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1, 196610, 0, 1, 196611, 0, 1, 196609, 0, 1, 196608, 0, 1, 262143, 0, 1, 262142, 0, 1, 262141, 0, 1, 262140, 0, 1, 262139, 0, 1, 262138, 0, 1, 262137, 0, 1, 262147, 0, 1, 131068, 196608, 8, 65532, 196608, 7, -4, 196608, 7, -65540, 131072, 4, 65535, 131072, 4, -65533, 131072, 4, 65539, 196608, 7, 65542, 0, 0, 65543, 0, 0, 10, 0, 0, 11, 0, 0, -65522, 0, 0, -65521, 0, 0, -131050, 0, 0, -131049, 0, 0, -262119, 0, 0, -262118, 0, 0, -393198, 0, 0, -393197, 0, 0, -393194, 0, 0, -393196, 589824, 0, -393195, 720896, 0, -393203, 0, 0, -393204, 0, 0, -393205, 0, 0, -393206, 0, 0, -458746, 0, 0, -458747, 0, 0, -458748, 0, 0, -393212, 0, 1, -393211, 0, 1, -393210, 0, 1, -327670, 0, 1, -327669, 0, 1, -327668, 0, 1, -327667, 0, 1, -327662, 0, 1, -327661, 0, 1, -327658, 0, 1, -65514, 0, 1, -65513, 0, 1, -196583, 0, 1, -196582, 0, 1, -327657, 0, 1, -393193, 0, 0, 131078, 0, 1, 131079, 0, 1, 65546, 0, 1, 65547, 0, 1, 14, 0, 1, 15, 0, 1, -327676, 0, 1, -327675, 0, 1, -327674, 0, 1, -262138, 0, 1, -262139, 0, 1, -262140, 0, 1, -458742, 65536, 7, -327654, 262144, 8, -458729, 0, 5, -524265, 0, 4, -589801, 0, 4, -655337, 0, 3)
 
-[node name="Platform2" parent="." unique_id=51436162 instance=ExtResource("3_wrm1d")]
-position = Vector2(-129, -60)
+[node name="Coins" type="Node2D" parent="." unique_id=1453296928]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2" unique_id=1460620909]
-libraries/ = SubResource("AnimationLibrary_wowpa")
+[node name="Coin" parent="Coins" unique_id=1995988743 instance=ExtResource("4_3dryh")]
+position = Vector2(-72, 8)
+
+[node name="Coin4" parent="Coins" unique_id=1243757744 instance=ExtResource("4_3dryh")]
+position = Vector2(-120, -72)
+
+[node name="Coin2" parent="Coins" unique_id=1905506721 instance=ExtResource("4_3dryh")]
+position = Vector2(-40, 8)
+
+[node name="Coin3" parent="Coins" unique_id=1006273405 instance=ExtResource("4_3dryh")]
+position = Vector2(24, 8)
+
+[node name="Platforms" type="Node2D" parent="." unique_id=429413481]
+
+[node name="Platform" parent="Platforms" unique_id=977040052 instance=ExtResource("3_wrm1d")]
+position = Vector2(304, -11)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform" unique_id=1108088065]
+
+[node name="Platform2" parent="Platforms" unique_id=624453606 instance=ExtResource("3_wrm1d")]
+position = Vector2(20, -59)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2" unique_id=2021533810]
+libraries/ = SubResource("AnimationLibrary_i6g32")
 autoplay = &"move"
+
+[node name="Killzone" parent="Platforms" unique_id=539359222 instance=ExtResource("5_wowpa")]
+position = Vector2(120, 88)
