@@ -2,14 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cxn26bmu7nvcx" path="res://Scripts/killzone.gd" id="1_jvagm"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rli2t"]
-
 [node name="Killzone" type="Area2D" unique_id=539359222]
 collision_mask = 2
 script = ExtResource("1_jvagm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1755668166]
-shape = SubResource("WorldBoundaryShape2D_rli2t")
 
 [node name="Timer" type="Timer" parent="." unique_id=1362342385]
 wait_time = 0.6
