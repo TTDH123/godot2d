@@ -289,16 +289,13 @@ shape = SubResource("WorldBoundaryShape2D_wowpa")
 [node name="Slime" parent="." unique_id=1212602646 instance=ExtResource("6_i6g32")]
 position = Vector2(-72, 53)
 
-[node name="Slime2" parent="." unique_id=1985218303 instance=ExtResource("6_i6g32")]
-position = Vector2(8, 53)
-
 [node name="Labels" type="Node" parent="." unique_id=1753159607]
 
 [node name="Label" type="Label" parent="Labels" unique_id=871364138]
-offset_left = -192.0
+offset_left = -181.0
 offset_top = 9.0
-offset_right = -145.0
-offset_bottom = 33.0
+offset_right = -9.0
+offset_bottom = 68.0
 theme_override_fonts/font = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 8
 text = "Space 
