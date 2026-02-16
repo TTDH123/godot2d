@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ck7aeak3q3sgv"]
+
+[ext_resource type="PackedScene" uid="uid://cwmwnfos1drov" path="res://Scenes/player.tscn" id="1_52fb6"]
+[ext_resource type="PackedScene" uid="uid://bvoavbxl7b7lc" path="res://Scenes/killzone.tscn" id="2_6l7je"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv6wh"]
+
+[node name="MainScene" type="Node2D" unique_id=1496827218]
+
+[node name="Player" parent="." unique_id=41817947 instance=ExtResource("1_52fb6")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2035994459]
+
+[node name="test" type="Label" parent="." unique_id=1260920519]
+offset_left = 107.0
+offset_top = -89.0
+offset_right = 147.0
+offset_bottom = -66.0
+text = "test"
+
+[node name="Killzone" parent="." unique_id=179960438 instance=ExtResource("2_6l7je")]
+position = Vector2(-154, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=71147227]
+position = Vector2(276, -35)
+shape = SubResource("RectangleShape2D_jv6wh")
