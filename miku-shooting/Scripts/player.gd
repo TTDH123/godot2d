@@ -24,10 +24,10 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 			speed = BOOST_SPEED
 			boost_gage -= delta * BOOST_USED
-		else: animated_sprite.play("idle")
+		else: animated_sprite.play("walk")
 		
 	else:
-		animated_sprite.play("idle")
+		animated_sprite.play("walk")
 		if boost_gage <= 100:
 			boost_gage += delta * BOOST_REGAIN
 	print(boost_gage)

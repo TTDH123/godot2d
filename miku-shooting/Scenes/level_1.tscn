@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://dxw3a0lvyxai"]
 
+[ext_resource type="PackedScene" uid="uid://cwmwnfos1drov" path="res://Scenes/player.tscn" id="1_vk57k"]
+[ext_resource type="PackedScene" uid="uid://brm1rhguh4qr" path="res://Scenes/bullet.tscn" id="2_8ffim"]
+
 [node name="Level1" type="Node2D" unique_id=452435561]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=467028755]
+
+[node name="Player" parent="." unique_id=2005698835 instance=ExtResource("1_vk57k")]
+
+[node name="Bullet" parent="." unique_id=1920921373 instance=ExtResource("2_8ffim")]
+position = Vector2(96.5206, 6.7019043)
