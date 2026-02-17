@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cwmwnfos1drov" path="res://Scenes/player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://bvoavbxl7b7lc" path="res://Scenes/killzone.tscn" id="2_6l7je"]
-[ext_resource type="PackedScene" uid="uid://brm1rhguh4qr" path="res://Scenes/bullet.tscn" id="3_jv6wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jv6wh"]
 
@@ -25,6 +24,3 @@ position = Vector2(-154, -40)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=71147227]
 position = Vector2(276, -35)
 shape = SubResource("RectangleShape2D_jv6wh")
-
-[node name="Bullet" parent="Killzone/CollisionShape2D" unique_id=4513917 instance=ExtResource("3_jv6wh")]
-position = Vector2(-74, -2)

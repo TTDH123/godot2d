@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED = 500.0
-const BOOST_SPEED = 800.0
+const SPEED = 300.0
+const BOOST_SPEED = 500.0
 const BOOST_USED = 100.0
 const BOOST_REGAIN = 50.0
 
 var boost_gage = 100
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 
@@ -21,9 +22,13 @@ func _physics_process(delta: float) -> void:
 	# boost_gage > 0일때 가속 가능, boost 버튼을 떼면 boost_gage가 자동회복
 	if is_boost:
 		if boost_gage > 0:
+			animated_sprite.play("run")
 			speed = BOOST_SPEED
 			boost_gage -= delta * BOOST_USED
+		else: animated_sprite.play("idle")
+		
 	else:
+		animated_sprite.play("idle")
 		if boost_gage <= 100:
 			boost_gage += delta * BOOST_REGAIN
 	print(boost_gage)
