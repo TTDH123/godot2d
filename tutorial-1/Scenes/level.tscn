@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ddpg2pio6xsgo"]
+
+[ext_resource type="Script" uid="uid://s2f2346n85q3" path="res://Scripts/level.gd" id="1_6phgx"]
+[ext_resource type="PackedScene" uid="uid://dnuyminkkad01" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://853tamgyvjvl" path="res://Scenes/fireball.tscn" id="2_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://cx8yje1tf5y00" path="res://Scenes/speedrun.tscn" id="4_81xng"]
+
+[node name="Level" type="Node2D" unique_id=355836088]
+script = ExtResource("1_6phgx")
+fireball_scene = ExtResource("2_k5f4k")
+
+[node name="Player" parent="." unique_id=635847586 instance=ExtResource("1_tumq0")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1316679145]
+position = Vector2(0, -47)
+
+[node name="Timer" type="Timer" parent="." unique_id=1937272758]
+wait_time = 0.3
+autostart = true
+
+[node name="speedrun" parent="." unique_id=540470921 instance=ExtResource("4_81xng")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

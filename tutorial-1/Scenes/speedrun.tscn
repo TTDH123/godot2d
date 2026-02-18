@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cx8yje1tf5y00"]
+
+[ext_resource type="Script" uid="uid://vaq33gj8uqpx" path="res://Scripts/speedrun.gd" id="1_7pu0l"]
+
+[node name="speedrun" type="CanvasLayer" unique_id=540470921]
+script = ExtResource("1_7pu0l")
+
+[node name="Label" type="Label" parent="." unique_id=538800057]
+offset_left = 101.0
+offset_top = -109.0
+offset_right = 152.0
+offset_bottom = -86.0
+text = "100.00"

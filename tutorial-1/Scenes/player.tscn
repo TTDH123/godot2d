@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dnuyminkkad01"]
+
+[ext_resource type="Script" uid="uid://b3wyl3o3lhbfj" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://du78cdjxoxowc" path="res://Assets/Sprites/1 - Robo Retro/Flight_Hurt_(32 x 32).png" id="1_v0iea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+radius = 6.0
+
+[node name="Player" type="Area2D" unique_id=635847586 groups=["player"]]
+script = ExtResource("1_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=444058307]
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1907609942]
+shape = SubResource("CircleShape2D_cvnsp")
