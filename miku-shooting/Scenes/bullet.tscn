@@ -1,18 +1,38 @@
 [gd_scene format=3 uid="uid://brm1rhguh4qr"]
 
-[ext_resource type="Texture2D" uid="uid://ctfv0w4vntcq" path="res://Assets/Sprites/bullet.png" id="1_xjght"]
+[ext_resource type="Texture2D" uid="uid://bg22pjq4gkp4p" path="res://Assets/Sprites/notes.png" id="1_oduel"]
 [ext_resource type="PackedScene" uid="uid://bvoavbxl7b7lc" path="res://Scenes/killzone.tscn" id="2_oduel"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycag2"]
+atlas = ExtResource("1_oduel")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6afsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycag2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycag2"]
-radius = 6.0
+radius = 4.0
 
 [node name="Bullet" type="Node2D" unique_id=1920921373]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1509896216]
-texture = ExtResource("1_xjght")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=759659370]
+sprite_frames = SubResource("SpriteFrames_6afsh")
+animation = &"idle"
 
 [node name="Killzone" parent="." unique_id=179960438 instance=ExtResource("2_oduel")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=277397677]
-position = Vector2(0.5, 0.5)
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_ycag2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone" unique_id=783225709]
+position = Vector2(2, -1)
 shape = SubResource("CircleShape2D_ycag2")

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const BOOST_SPEED = 500.0
+const SPEED = 100.0
+const BOOST_SPEED = 200.0
 const BOOST_USED = 100.0
 const BOOST_REGAIN = 50.0
 
