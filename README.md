@@ -5,3 +5,5 @@ ms - what to do
 
 
 / https://youtu.be/TLG2yVpLDT8?si=a1L884d1FDvQHwog
+
+/ https://wikidocs.net/314471
