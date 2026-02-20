@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bdxk22rjwfqvj"]
+
+[ext_resource type="Script" uid="uid://dl4pla2ckoqaf" path="res://Scripts/hud.gd" id="1_e0onf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1521100033]
+script = ExtResource("1_e0onf")
+
+[node name="Label" type="Label" parent="." unique_id=544908196]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "점수: 00000"
