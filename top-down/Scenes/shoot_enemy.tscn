@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dh1b2oj1pttei"]
+
+[ext_resource type="Script" uid="uid://du4ui4dvdu7b8" path="res://Scripts/shoot_enemy.gd" id="1_2j8kj"]
+[ext_resource type="Texture2D" uid="uid://gk56mjxqgjku" path="res://Assets/tiny-clans-sword-orc/tiny_clans_orc_sword.png" id="1_hhndp"]
+[ext_resource type="PackedScene" uid="uid://cqofu0wtq5ayj" path="res://Scenes/bullet.tscn" id="3_32fph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j8kj"]
+atlas = ExtResource("1_hhndp")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32fph"]
+atlas = ExtResource("1_hhndp")
+region = Rect2(32, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy7qa"]
+atlas = ExtResource("1_hhndp")
+region = Rect2(64, 64, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7i2q7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j8kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32fph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy7qa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhndp"]
+radius = 4.0
+
+[node name="ShootEnemy" type="Area2D" unique_id=1720000984]
+script = ExtResource("1_2j8kj")
+team = &"enemy"
+bullet = ExtResource("3_32fph")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2027755325]
+sprite_frames = SubResource("SpriteFrames_7i2q7")
+autoplay = "default"
+frame_progress = 0.27684858
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216625014]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_hhndp")
+
+[node name="Timer" type="Timer" parent="." unique_id=1459693266]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

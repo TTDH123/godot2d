@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bh8qehr67lcoy"]
+
+[ext_resource type="Texture2D" uid="uid://gvtuqty571qb" path="res://Assets/icon_heart.png" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://mfv6b15wfsw0" path="res://Scripts/hud.gd" id="1_fccik"]
+
+[node name="HUD" type="CanvasLayer" unique_id=491282173]
+script = ExtResource("1_fccik")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=285421072]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=989176502]
+layout_mode = 2
+texture = ExtResource("1_e0onf")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=598769326]
+layout_mode = 2
+texture = ExtResource("1_e0onf")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1759247918]
+layout_mode = 2
+texture = ExtResource("1_e0onf")
+stretch_mode = 5

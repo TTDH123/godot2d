@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqofu0wtq5ayj"]
+
+[ext_resource type="Texture2D" uid="uid://5bprp4skv5mh" path="res://Assets/icon_audio.png" id="1_xjght"]
+[ext_resource type="Script" uid="uid://d1150pkn12gcr" path="res://Scripts/bullet.gd" id="2_oduel"]
+[ext_resource type="PackedScene" uid="uid://bgnfjunjad7kn" path="res://Scenes/hitbox.tscn" id="3_ycag2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6afsh"]
+radius = 5.0
+
+[node name="Bullet" type="Sprite2D" unique_id=1933485496]
+texture = ExtResource("1_xjght")
+script = ExtResource("2_oduel")
+
+[node name="Hitbox" parent="." unique_id=1618975037 instance=ExtResource("3_ycag2")]
+team = &"enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2054887722]
+shape = SubResource("CircleShape2D_6afsh")
