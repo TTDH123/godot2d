@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://biukxvhgxh4y1"]
+
+[ext_resource type="Script" uid="uid://bjhrklp04wx8s" path="res://Scripts/tower.gd" id="1_mh5eo"]
+[ext_resource type="Texture2D" uid="uid://d38c31und5qq6" path="res://Assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="1_ndpwd"]
+[ext_resource type="PackedScene" uid="uid://bx25eqqsfk0js" path="res://Scenes/bullet.tscn" id="2_tghyl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mh5eo"]
+radius = 112.21854
+
+[node name="Tower" type="Area2D" unique_id=807948557]
+script = ExtResource("1_mh5eo")
+bullet_scene = ExtResource("2_tghyl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1220762120]
+texture = ExtResource("1_ndpwd")
+hframes = 6
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=979282914]
+shape = SubResource("CircleShape2D_mh5eo")
+
+[node name="Timer" type="Timer" parent="." unique_id=28947820]
+wait_time = 0.5
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

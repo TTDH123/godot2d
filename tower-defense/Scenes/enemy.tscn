@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cdcohkrh3sdgt"]
+
+[ext_resource type="Script" uid="uid://chrghbktpx7tv" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://bvmie3etwnxdt" path="res://Assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_hghv2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f0kj"]
+atlas = ExtResource("1_hghv2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afpow"]
+atlas = ExtResource("1_hghv2")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_287tu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f0kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afpow")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0830c"]
+radius = 5.0
+
+[node name="Enemy" type="PathFollow2D" unique_id=1158847535 groups=["enemy"]]
+loop = false
+script = ExtResource("1_1f0kj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=743448917]
+sprite_frames = SubResource("SpriteFrames_287tu")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.5043981
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=832398236 groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=953498842]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_0830c")
