@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bx25eqqsfk0js"]
+
+[ext_resource type="Script" uid="uid://dmj5siid4gfuc" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://rje25hmmtvud" path="res://Assets/Sprout Lands - Sprites - Basic pack/Objects/Egg item.png" id="1_xjght"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjght"]
+radius = 6.0
+
+[node name="Bullet" type="Area2D" unique_id=1027438390]
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2006989503]
+texture = ExtResource("1_xjght")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=136890747]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_xjght")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
